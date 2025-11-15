@@ -1,0 +1,76 @@
+%% Plot Data 
+load Mystery_Signal.mat
+subplot(2,1,1)
+plot (time,myst_signal)
+xlabel('time');
+ylabel('Amp');
+%% Find out Frequencies 
+Fs=1500;
+L=15000;
+Samples=0:L-1;
+Y=fft(myst_signal);
+Y=Y(1:L/2);
+Y_abs=abs(Y);
+f=Fs*Samples/L;
+f=f(1:L/2);
+% plot(f,Y_abs)
+% xlabel('frequency')
+% ylabel('amp')
+%% Filter 
+for ii = 1:length(f)
+    if (f(ii) > 2.5 && f(ii) < 3.7) || ...
+       (f(ii) > 27.5 && f(ii) < 29.5) || ...
+       (f(ii) > 62   && f(ii) < 64)
+        f(ii)=f(ii)
+    else
+        Y(ii) = 0;
+    end
+end
+Y_abs_filtered=abs(Y);
+%% Compare
+subplot(2,1,2)
+plot(f,Y_abs_filtered)
+xlabel('frequency')
+ylabel('amp')
+%%
+%2. Compute Fourier Transformation Using For Loops 
+Fs=1500;
+T=1/Fs;
+L1=1000;
+t=(0:L1-1)*T;
+
+%test signal 
+f1=10;
+f2=50;
+x=0.8*sin(2*pi*f1*t) + 1.2*sin(2*pi*f2*t);
+plot(t,x)
+xlabel('Time')
+ylabel('Amp')
+N = length(x);
+X_forloop = zeros(1, N);
+for k_ix = 1:N
+    k = k_ix - 1; 
+    sum_val = 0;
+    for n_ix = 1:N
+        n = n_ix - 1; 
+        exponent = exp(-1i * 2 * pi * k * n / N);
+        sum_val = sum_val + x(n_ix) * exponent;
+    end
+    X_forloop(k_ix) = sum_val;
+end
+X_fft = fft(x);
+X_forloop_absolute = abs(X_forloop);
+X_fft_absolute = abs(X_fft);
+%% Compare 
+f = (0:N-1) * Fs / N;
+figure;
+subplot(2,1,1);
+plot(f, X_forloop_absolute);
+title('For Loop');
+xlabel('Frequency');
+ylabel('Amp');
+subplot(2,1,2);
+plot(f, X_fft_absolute);
+title('FFT');
+xlabel('Frequency');
+ylabel('Amp');  
