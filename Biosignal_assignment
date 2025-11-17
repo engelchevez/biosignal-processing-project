@@ -46,6 +46,7 @@ x=0.8*sin(2*pi*f1*t) + 1.2*sin(2*pi*f2*t);
 plot(t,x)
 xlabel('Time')
 ylabel('Amp')
+%% Replicating Fourier Transformation with For Loops 
 N = length(x);
 X_forloop = zeros(1, N);
 for k_ix = 1:N
@@ -61,7 +62,7 @@ end
 X_fft = fft(x);
 X_forloop_absolute = abs(X_forloop);
 X_fft_absolute = abs(X_fft);
-%% Compare 
+%% Compare for loop fourier transformation with FFT built-in MATLAB function 
 f = (0:N-1) * Fs / N;
 figure;
 subplot(2,1,1);
