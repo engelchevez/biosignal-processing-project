@@ -1,6 +1,6 @@
 # biosignal-processing-project
 A MATLAB and Graphical analysis of a given signal, analysis done using Fourier Transformation and band-pass filtering to remove low hertz interference. 
-This is my Github project, an extra-credit optional assignment I did in my intro to BME computing. 
+This is my first Github project, an extra-credit optional assignment I did in my intro to BME computing. 
 
 ---
 
@@ -14,7 +14,9 @@ This assignment and project does the following:
 -Comapre manual DFT with FFT MATLAB function 
 
 ## Project Structure 
-
+/plots - contains bandpass filter MATLAB plot and DFT vs MATLAB FFT comparison plot 
+/Biosingal-assignemnt - contains MATLAB script for assignment 
+/Mystery_Signal.mat - Raw MATLAB data used for assignment
 
 
 ## How to Run 
