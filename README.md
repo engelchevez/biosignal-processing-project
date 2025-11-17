@@ -20,3 +20,16 @@ This assignment and project does the following:
 
 
 ## How to Run 
+1. Install MATLAB (if not already installed)
+2. Clone or download repository
+3. Ensure following files in same folder
+  * Mystery_Signal.mat
+  * Biosignal_assignment
+4. Open MATLAB and navigate to appropriate folder
+5. Run script
+6. The script should do the following
+- Load "Mystery_Signal.mat
+- Compute FFT
+- Filter the selected frequencies found from FFT
+- DFT using FOR LOOPS 
+- Then compare FFT and DFT 
