@@ -1,5 +1,5 @@
 # biosignal-processing-project
-A MATLAB and Graphical analysis of a given signal, analysis done using Fourier Transformation and band-pass filtering to remove low hertz interference. 
+A MATLAB and Graphical analysis of a given ECG biosignal, analysis done using Fourier Transformation and band-pass filtering to remove low hertz interference. 
 This is my first Github project, an extra-credit optional assignment I did in my intro to BME computing. 
 
 ---
